@@ -1,0 +1,3 @@
+---
+- src: stefano-pogliani.upstream-nginx
+  version: v0.0.2

@@ -1,0 +1,28 @@
+---
+- name: Render email whitelist
+  template:
+    dest: '{{ authgateway_install_path }}/allowed.emails'
+    group: '{{ authgateway_group }}'
+    owner: '{{ authgateway_user }}'
+    mode: 0644
+    src: 'tasks/template/allowed.emails'
+  when: authgateway_extra_emails|length
+  notify:
+    - Restart AuthGateway
+
+- name: Render AuthGateway configuration
+  template:
+    dest: '{{ authgateway_install_path }}/auth-gateway.yaml'
+    group: '{{ authgateway_group }}'
+    owner: '{{ authgateway_user }}'
+    mode: 0644
+    src: 'tasks/template/auth-gateway.yaml'
+  notify:
+    - Restart AuthGateway
+
+- name: Render acmetool target file
+  template:
+    dest: '{{ authgateway_acmetool_target }}'
+    mode: 644
+    src: 'tasks/template/acmetool.yml'
+  when: authgateway_acmetool_target is string

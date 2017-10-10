@@ -1,0 +1,6 @@
+---
+- name: Restart AuthGateway
+  service:
+    name: 'authgateway'
+    state: restarted
+  when: false

@@ -1,0 +1,30 @@
+---
+- name: Create AuthGateway group
+  group:
+    name: '{{ authgateway_group }}'
+    state: present
+    system: yes
+
+- name: Create AuthGateway user
+  user:
+    createhome: no
+    group: '{{ authgateway_group }}'
+    name: '{{ authgateway_user }}'
+    shell: '/bin/false'
+    state: present
+    system: yes
+
+- name: Create AuthGateway install dirs
+  file:
+    path: '{{ authgateway_install_path }}'
+    mode: 0755
+    state: directory
+
+- name: Install AuthGateway
+  npm:
+    executable: '{{ authgateway_npm_exec }}'
+    global: no
+    name: '{{ authgateway_install_url }}'
+    path: '{{ authgateway_install_path }}'
+    production: yes
+    state: present

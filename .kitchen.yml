@@ -1,0 +1,32 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+
+platforms:
+  - name: fedora-26
+
+
+provisioner:
+  name: ansible_playbook
+  require_ansible_repo: true
+  require_ansible_omnibus: false
+  ansible_version: 'latest'
+
+  ansible_verbose: true
+  require_chef_for_busser: false
+
+  additional_copy_path: ['tests']
+  playbook: 'tests/test.yml'
+  requirements_path: 'tests/requirements.yml'
+  hosts: ['localhost']
+
+
+verifier:
+  name: serverspec
+  use_sudo: false
+  #sudo_path: true
+
+suites:
+  - name: default

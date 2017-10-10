@@ -1,0 +1,34 @@
+---
+- name: Create prefix root
+  file:
+    path: '{{ authgateway_oauth2_proxy_prefix }}'
+    state: directory
+    mode: 0755
+
+- name: Create prefix structure
+  file:
+    path: '{{ authgateway_oauth2_proxy_prefix }}/{{ item }}'
+    state: directory
+    mode: 0755
+  with_items:
+    - archives
+    - bin
+
+- name: Fetch OAuth2Proxy release from GitHub
+  get_url:
+    url: '{{ authgateway_oauth2_proxy_release }}/{{ authgateway_oauth2_proxy_version }}.tar.gz'
+    dest: '{{ authgateway_oauth2_proxy_prefix }}/archives/'
+    checksum: '{{ authgateway_oauth2_proxy_checksum }}'
+    mode: 0644
+
+- name: Extract the release
+  unarchive:
+    remote_src: yes
+    dest: '{{ authgateway_oauth2_proxy_prefix }}/bin/'
+    src: '{{ authgateway_oauth2_proxy_prefix }}/archives/{{ authgateway_oauth2_proxy_version }}.tar.gz'
+
+- name: Activate the current version
+  file:
+    path: '{{ authgateway_oauth2_proxy_prefix }}/bin/oauth2_proxy'
+    src: '{{ authgateway_oauth2_proxy_prefix }}/bin/{{ authgateway_oauth2_proxy_version }}/oauth2_proxy'
+    state: link

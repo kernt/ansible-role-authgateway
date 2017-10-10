@@ -1,0 +1,24 @@
+galaxy_info:
+  author: Stefano Pogliani
+  description: Asible role to install and configure AuthGateway
+  license: MIT
+
+  min_ansible_version: 2.4
+  platforms:
+    - name: CentOS
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - oauth2
+    - proxy
+    - https
+
+dependencies: []
+# Dependencies intentionally not configure to let the use choose.

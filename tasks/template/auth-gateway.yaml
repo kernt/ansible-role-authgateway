@@ -1,0 +1,48 @@
+gateway:
+  domain: '{{ authgateway_conf_domain | mandatory }}'
+
+
+auditor:
+  provider: '{{ authgateway_conf_auditor_provider }}'
+  endpoint: '{{ authgateway_conf_auditor_endpoint }}'
+
+
+auth_proxy:
+  oauth:
+    client: '{{ authgateway_conf_client_id | mandatory }}'
+    secret: '{{ authgateway_conf_client_secret | mandatory }}'
+    provider: '{{ authgateway_conf_provider | mandatory }}'
+
+  process:
+    name: 'auth'
+    command: '{{ authgateway_auth_exec }}'
+
+  session:
+    secret: '{{ authgateway_conf_session_secret | mandatory }}'
+    ttl: '{{ authgateway_conf_session_ttl }}'
+
+{% if authgateway_extra_emails %}
+  extra:
+    emails: '{{ authgateway_install_path }}/allowed.emails'
+{% endif %}
+
+
+http_proxy:
+  bind:
+    address: '{{ authgateway_conf_bind }}'
+    port: {{ authgateway_conf_port }}
+
+  process:
+    name: 'http'
+    command: '{{ authgateway_http_exec }}'
+
+  tls:
+    crt_file: '{{ authgateway_conf_crt_file }}'
+    key_file: '{{ authgateway_conf_key_file }}'
+    terminate: {{ authgateway_conf_tls_terminate }}
+
+
+{% if authgateway_conf_apps  %}
+apps:
+{{ authgateway_conf_apps | to_yaml }}
+{% endif %}

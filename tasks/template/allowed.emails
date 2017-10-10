@@ -1,0 +1,3 @@
+{% for email in authgateway_extra_emails %}
+{{ email }}
+{% endfor %}

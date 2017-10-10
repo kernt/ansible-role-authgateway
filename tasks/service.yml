@@ -1,0 +1,7 @@
+---
+- name: Install systemd service
+  template:
+    dest: '/usr/lib/systemd/system/authgateway.service'
+    mode: 0644
+    src: 'tasks/template/authgateway.service'
+  when: ansible_service_mgr == 'systemd'
