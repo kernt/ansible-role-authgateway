@@ -76,6 +76,7 @@ These are the paths to the three dependencies of AuthGateway:
 | `authgateway_extra_emails` | List of emails that are allowed to connect | `[]` |
 
 The following options are all **REQUIRED**:
+
 | Variable | Description |
 | -------- | ----------- |
 | `authgateway_conf_domain` | Top domain of your gateway (i.e, gate.example.com) |
