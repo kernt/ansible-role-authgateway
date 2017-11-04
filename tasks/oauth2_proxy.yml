@@ -17,7 +17,7 @@
 - name: Fetch OAuth2Proxy release from GitHub
   get_url:
     url: '{{ authgateway_oauth2_proxy_release }}/{{ authgateway_oauth2_proxy_version }}.tar.gz'
-    dest: '{{ authgateway_oauth2_proxy_prefix }}/archives/'
+    dest: '{{ authgateway_oauth2_proxy_prefix }}/archives/{{ authgateway_oauth2_proxy_version }}.tar.gz'
     checksum: '{{ authgateway_oauth2_proxy_checksum }}'
     mode: 0644
 
