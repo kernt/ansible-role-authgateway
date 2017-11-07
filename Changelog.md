@@ -1,3 +1,9 @@
+0.1.5
+-----
+* Add session cookie name to template variables.
+* Document added variables.
+* Update templates path to follow ansible convention.
+
 0.1.4
 -----
 * Can't use `npm run` because `package.json` is not there.

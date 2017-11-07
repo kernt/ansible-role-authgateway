@@ -3,7 +3,7 @@
   template:
     dest: '/usr/lib/systemd/system/authgateway.service'
     mode: 0644
-    src: 'tasks/template/authgateway.service'
+    src: 'authgateway.service'
   when: ansible_service_mgr == 'systemd'
 
 - name: AuthGateway | Configure service

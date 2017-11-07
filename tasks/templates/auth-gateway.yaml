@@ -19,6 +19,7 @@ auth_proxy:
     command: '{{ authgateway_auth_exec }}'
 
   session:
+    name: '{{ authgateway_conf_session_name | mandatory }}'
     secret: '{{ authgateway_conf_session_secret | mandatory }}'
     ttl: '{{ authgateway_conf_session_ttl }}'
 

@@ -51,6 +51,7 @@ These are the paths to the three dependencies of AuthGateway:
 | -------- | ----------- | ------- |
 | `authgateway_auth_exec` | Path to the auth proxy executable | See `defaults/main.yml` |
 | `authgateway_http_exec` | Path to the http proxy executable | `'nginx'` |
+| `authgateway_node_exec` | Path to the node executable | `'/usr/bin/node'` |
 | `authgateway_npm_exec` | Path to the npm executable | `'npm'` |
 
 ### Install options
@@ -65,6 +66,7 @@ These are the paths to the three dependencies of AuthGateway:
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
 | `authgateway_conf_apps` | List of apps to configure (see AuthGateway configuration docs) | `[]` |
+| `authgateway_conf_session_name` | Name of the session cookie, try to make it unique! | `'authgateway'` |
 | `authgateway_conf_session_ttl` | Time To Live of cookie sessions | `'168h'` |
 | `authgateway_conf_bind` | Local address to bind the HTTP proxy to | `'*'` |
 | `authgateway_conf_port` | Local port to bind the HTTP proxy to | `443` |

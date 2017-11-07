@@ -26,6 +26,7 @@ authgateway_user: 'authgateway'
 
 # Configure AuthGateway.
 authgateway_conf_apps: []
+authgateway_conf_session_name: 'authgateway'
 authgateway_conf_session_ttl: '168h'
 authgateway_conf_bind: '*'
 authgateway_conf_port: 443
