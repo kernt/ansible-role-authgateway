@@ -12,7 +12,8 @@ authgateway_oauth2_proxy_version: 'oauth2_proxy-2.2.0.linux-amd64.go1.8.1'
 # Configure required commands.
 authgateway_auth_exec: '/opt/oauth2_porxy/bin/oauth2_proxy'
 authgateway_http_exec: 'nginx'
-authgateway_npm_exec: 'npm'
+authgateway_node_exec: '/usr/bin/node'
+authgateway_npm_exec:  'npm'
 
 
 # Configure AuthGateway installation.

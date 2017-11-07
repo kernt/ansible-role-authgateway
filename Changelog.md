@@ -1,3 +1,8 @@
+0.1.4
+-----
+* Can't use `npm run` because `package.json` is not there.
+* Systemd needs an absolute path for ExecStart.
+
 0.1.3
 -----
 * Wrong parameter name for service.

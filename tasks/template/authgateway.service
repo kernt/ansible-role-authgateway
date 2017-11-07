@@ -3,7 +3,7 @@ Description=A fully featured auth gateway for web applications.
 
 [Service]
 Type=simple
-ExecStart={{ authgateway_npm_exec }} run auth-gateway run
+ExecStart={{ authgateway_node_exec }} node_modules/.bin/auth-gateway run
 ExecReload=/bin/kill -HUP $MAINPID
 WorkingDirectory={{ authgateway_install_path }}
 
