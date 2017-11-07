@@ -1,11 +1,11 @@
 ---
-- name: Create AuthGateway group
+- name: AuthGateway | Create group
   group:
     name: '{{ authgateway_group }}'
     state: present
     system: yes
 
-- name: Create AuthGateway user
+- name: AuthGateway | Create user
   user:
     createhome: no
     group: '{{ authgateway_group }}'
@@ -14,13 +14,13 @@
     state: present
     system: yes
 
-- name: Create AuthGateway install dirs
+- name: AuthGateway | Create install directories
   file:
     path: '{{ authgateway_install_path }}'
     mode: 0755
     state: directory
 
-- name: Install AuthGateway
+- name: AuthGateway | Install node package
   npm:
     executable: '{{ authgateway_npm_exec }}'
     global: no

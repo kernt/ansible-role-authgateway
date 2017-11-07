@@ -1,13 +1,13 @@
 ---
-- name: Configure Auth proxy
+- name: AuthGateway | Configure auth proxy
   include_tasks: 'oauth2_proxy.yml'
   when: authgateway_configure_oauth2_proxy
 
-- name: Install AuthGateway
+- name: AuthGateway | Install
   import_tasks: 'tasks/install.yml'
 
-- name: Install service
-  import_tasks: 'tasks/service.yml'
-
-- name: Configure AuthGateway
+- name: AuthGateway | Configure
   import_tasks: 'tasks/configure.yml'
+
+- name: AuthGateway | Configure service
+  import_tasks: 'tasks/service.yml'

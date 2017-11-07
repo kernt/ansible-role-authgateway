@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 gateway:
   domain: '{{ authgateway_conf_domain | mandatory }}'
 

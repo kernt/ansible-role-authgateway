@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 satisfy:
   names:
     - {{ authgateway_conf_domain }}
