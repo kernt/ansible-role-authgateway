@@ -10,5 +10,5 @@
   service:
     enabled: true
     name: authgateway
-    status: started
+    state: started
   when: ansible_service_mgr == 'systemd'

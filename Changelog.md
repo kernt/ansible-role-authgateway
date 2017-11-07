@@ -1,3 +1,7 @@
+0.1.3
+-----
+* Wrong parameter name for service.
+
 0.1.2
 -----
 * Better names for tasks.
