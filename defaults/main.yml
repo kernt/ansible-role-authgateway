@@ -26,10 +26,11 @@ authgateway_user: 'authgateway'
 
 # Configure AuthGateway.
 authgateway_conf_apps: []
-authgateway_conf_session_name: 'authgateway'
-authgateway_conf_session_ttl: '168h'
+authgateway_conf_base_dir: '{{ authgateway_install_path }}'
 authgateway_conf_bind: '*'
 authgateway_conf_port: 443
+authgateway_conf_session_name: 'authgateway'
+authgateway_conf_session_ttl: '168h'
 authgateway_conf_crt_file: '/opt/authgateway/gate.crt'
 authgateway_conf_key_file: '/opt/authgateway/gate.key'
 authgateway_conf_tls_terminate: true
@@ -49,4 +50,6 @@ authgateway_extra_emails: []
 
 
 # Optional role features.
+authgateway_acmetool_hook: ~
 authgateway_acmetool_target: ~
+authgateway_install_nginx_workdir: true

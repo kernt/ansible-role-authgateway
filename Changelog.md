@@ -1,3 +1,11 @@
+0.1.6
+-----
+* Customise the `base_dir` configuration option.
+* Fix multiline syntax error in acmetool target.
+* Optional: create nginx working directory in `base_dir`.
+* Optional: render systemd service acmetool hook.
+* Update readme.
+
 0.1.5
 -----
 * Add session cookie name to template variables.

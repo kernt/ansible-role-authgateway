@@ -1,0 +1,17 @@
+#!/bin/env bash
+#  {{ ansible_managed }}
+#  AcmeTool hook to reload the AuthGateway systemd service.
+set -e
+
+# Only care for certificate update events.
+EVENT_NAME="$1"
+[ "$EVENT_NAME" = "live-updated" ] || exit 42
+
+# Reload services.
+if which systemctl >/dev/null 2>/dev/null; then
+  service="authgateway.service"
+  etc_path="/etc/systemd/system/${service}"
+  lib_path="/lib/systemd/system/${service}"
+  [ -e "${lib_path}" -o -e "${etc_path}" ] && systemctl reload "${service}" >/dev/null 2>/dev/null || true
+  exit 0
+fi

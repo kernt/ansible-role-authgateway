@@ -24,6 +24,8 @@
       authgateway_extra_emails:
         - 'test1@example.com'
         - 'test2@example.com'
+
+      authgateway_acmetool_hook: '/opt/authgateway/acmetool.hook'
       authgateway_acmetool_target: '/opt/authgateway/acmetool.wants'
       authgateway_conf_apps:
         - name: Google
@@ -32,3 +34,8 @@
           upstream:
             host: 'localhost:1234'
             protocol: 'http'
+        - name: Some Other Tool
+          upstream:
+            host: 'localhost:5678'
+            protocol: 'http'
+            subdomain: 'other'

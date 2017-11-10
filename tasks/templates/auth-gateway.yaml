@@ -1,5 +1,6 @@
 # {{ ansible_managed }}
 gateway:
+  base_dir: '{{ authgateway_conf_base_dir }}'
   domain: '{{ authgateway_conf_domain | mandatory }}'
 
 

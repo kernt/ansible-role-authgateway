@@ -23,6 +23,6 @@
 - name: AuthGateway | Render acmetool target file
   template:
     dest: '{{ authgateway_acmetool_target }}'
-    mode: 644
+    mode: 0644
     src: 'acmetool.yml'
   when: authgateway_acmetool_target is string

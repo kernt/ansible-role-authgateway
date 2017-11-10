@@ -66,10 +66,11 @@ These are the paths to the three dependencies of AuthGateway:
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
 | `authgateway_conf_apps` | List of apps to configure (see AuthGateway configuration docs) | `[]` |
-| `authgateway_conf_session_name` | Name of the session cookie, try to make it unique! | `'authgateway'` |
-| `authgateway_conf_session_ttl` | Time To Live of cookie sessions | `'168h'` |
+| `authgateway_conf_base_dir` | Path to use as the `base_dir` configuration option | The value of `authgateway_install_path` |
 | `authgateway_conf_bind` | Local address to bind the HTTP proxy to | `'*'` |
 | `authgateway_conf_port` | Local port to bind the HTTP proxy to | `443` |
+| `authgateway_conf_session_name` | Name of the session cookie, try to make it unique! | `'authgateway'` |
+| `authgateway_conf_session_ttl` | Time To Live of cookie sessions | `'168h'` |
 | `authgateway_conf_crt_file` | Path to the HTTPS certificate file | `'/opt/authgateway/gate.crt'` |
 | `authgateway_conf_key_file` | Path to the HTTPS certificate key | `'/opt/authgateway/gate.key'` |
 | `authgateway_conf_tls_terminate` | Perform TLS termination at the http proxy (diable when TLS is terminated at LB level) | `true` |
@@ -90,7 +91,9 @@ The following options are all **REQUIRED**:
 ### Extra features
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
+| `authgateway_acmetool_hook` | When set, it is the path to an acmetool reload hook for AuthGateway | `None` |
 | `authgateway_acmetool_target` | When set, it is the path to an acmetool target for the domain and all subdomains | `None` |
+| `authgateway_install_nginx_workdir` | Create an nginx work directory under `authgateway_conf_base_dir/http_proxy` | `ture` |
 
 
 Dependencies

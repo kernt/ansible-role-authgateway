@@ -12,3 +12,12 @@
     name: authgateway
     state: started
   when: ansible_service_mgr == 'systemd'
+
+- name: AuthGateway | Render acmetool service reload hook
+  template:
+    dest: '{{ authgateway_acmetool_hook }}'
+    mode: 0755
+    src: 'acmetool.hook'
+  when:
+    - ansible_service_mgr == 'systemd'
+    - authgateway_acmetool_hook is string

@@ -2,12 +2,12 @@
 satisfy:
   names:
     - {{ authgateway_conf_domain }}
-    {% for app in authgateway_conf_apps %}
-    {%- if app.get('upstream') -%}
-    {%- if app['upstream'].get('subdomain') -%}
+    {% for app in authgateway_conf_apps -%}
+    {% if app.get('upstream') -%}
+    {% if app['upstream'].get('subdomain') -%}
     - {{ app['upstream']['subdomain']|lower }}.{{ authgateway_conf_domain }}
-    {%- else -%}
+    {% else -%}
     - {{ app['name']|lower }}.{{ authgateway_conf_domain }}
-    {%- endif -%}
-    {%- endif -%}
-    {% endfor %}
+    {% endif -%}
+    {% endif -%}
+    {% endfor -%}

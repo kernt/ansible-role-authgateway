@@ -20,6 +20,21 @@
     mode: 0755
     state: directory
 
+- name: AuthGateway | Create nginx non-root working directory.
+  file:
+    path: '{{ authgateway_conf_base_dir }}/{{ item }}'
+    mode: 0755
+    state: directory
+  with_items:
+    - 'http_proxy'
+    - 'http_proxy/tmp'
+    - 'http_proxy/tmp/client_body'
+    - 'http_proxy/tmp/fastcgi'
+    - 'http_proxy/tmp/proxy'
+    - 'http_proxy/tmp/scgi'
+    - 'http_proxy/tmp/uwsgi'
+  when: authgateway_install_nginx_workdir
+
 - name: AuthGateway | Install node package
   npm:
     executable: '{{ authgateway_npm_exec }}'
