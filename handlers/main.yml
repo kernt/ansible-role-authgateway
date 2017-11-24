@@ -3,4 +3,4 @@
   service:
     name: 'authgateway'
     state: restarted
-  when: false
+  when: ansible_service_mgr == 'systemd'

@@ -1,3 +1,8 @@
+0.1.7
+-----
+* Fix service handler `when` condition.
+* Upgrade default version to 0.2.8.
+
 0.1.6
 -----
 * Customise the `base_dir` configuration option.

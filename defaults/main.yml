@@ -18,7 +18,7 @@ authgateway_npm_exec:  'npm'
 
 # Configure AuthGateway installation.
 authgateway_install_path: '/opt/authgateway'
-authgateway_install_url: 'https://github.com/stefano-pogliani/auth-gateway/archive/v0.2.5.tar.gz'
+authgateway_install_url: 'https://github.com/stefano-pogliani/auth-gateway/archive/v0.2.8.tar.gz'
 
 authgateway_group: 'authgateway'
 authgateway_user: 'authgateway'
