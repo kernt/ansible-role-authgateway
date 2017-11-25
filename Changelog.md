@@ -1,3 +1,8 @@
+0.2.1
+-----
+* Fix `diff` detection in AcmeTool hook.
+* Fix nginx workdir permission to support non-root.
+
 0.2.0
 -----
 * AuthGateway runs as non-root by default.

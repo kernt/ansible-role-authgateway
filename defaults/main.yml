@@ -22,9 +22,6 @@ authgateway_install_url: 'https://github.com/stefano-pogliani/auth-gateway/archi
 
 authgateway_group: 'authgateway'
 authgateway_user:  'authgateway'
-systemd_group: '{{ authgateway_group }}'
-systemd_user:  '{{ authgateway_user }}'
-
 
 # Configure AuthGateway.
 authgateway_conf_apps: []

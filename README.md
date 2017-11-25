@@ -59,10 +59,8 @@ These are the paths to the three dependencies of AuthGateway:
 | -------- | ----------- | ------- |
 | `authgateway_install_path` | Location to install AuthGateway to | `/opt/authgateway` |
 | `authgateway_install_url` | URL of the GitHub release (tag) to install | See `defaults/main.yml` |
-| `authgateway_user` | User to own AuthGateway install | `'authgateway'` |
-| `authgateway_group` | Group to own AuthGateway install | `'authgateway'` |
-| `systemd_user` | User to run AuthGateway | `authgateway_user` |
-| `systemd_group` | Group to run AuthGateway | `authgateway_group` |
+| `authgateway_user` | User to run AuthGateway as | `'authgateway'` |
+| `authgateway_group` | Group to run AuthGateway as | `'authgateway'` |
 
 ### Configuration options
 | Variable | Description | Default |
@@ -126,7 +124,7 @@ To address these:
 
   * `stefano-pogliani.upstream-nginx` support setting capabilities as needed.
   * The AcmeTool hook script provided can copy the certs to the install directory if needed.
-  * The `systemd_user` and `systemd_group` variables configure the systemd service.
+  * The `authgateway_user` and `authgateway_group` variables configure the systemd service.
 
 
 Example Playbook

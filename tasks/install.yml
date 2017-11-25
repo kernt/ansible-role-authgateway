@@ -16,14 +16,18 @@
 
 - name: AuthGateway | Create install directories
   file:
-    path: '{{ authgateway_install_path }}'
-    mode: 0755
+    path:  '{{ authgateway_install_path }}'
+    mode:  0755
+    group: '{{ authgateway_group }}'
+    owner: '{{ authgateway_user }}'
     state: directory
 
-- name: AuthGateway | Create nginx non-root working directory.
+- name: AuthGateway | Create nginx working directory.
   file:
-    path: '{{ authgateway_conf_base_dir }}/{{ item }}'
-    mode: 0755
+    path:  '{{ authgateway_conf_base_dir }}/{{ item }}'
+    mode:  0755
+    group: '{{ authgateway_group }}'
+    owner: '{{ authgateway_user }}'
     state: directory
   with_items:
     - 'http_proxy'
