@@ -1,5 +1,5 @@
-Role Name
-=========
+AuthGateway
+===========
 Ansible role to install and configure
 [AuthGateway](https://github.com/stefano-pogliani/auth-gateway).
 
@@ -45,7 +45,7 @@ These are the paths to the three dependencies of AuthGateway:
 
   * AuthProxy (oauth2_proxy by default)
   * HttpProxy (nginx by default)
-  * NPM (to install and run AuthGateway)
+  * NPM and NodeJs (to install and run AuthGateway)
 
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
@@ -59,8 +59,10 @@ These are the paths to the three dependencies of AuthGateway:
 | -------- | ----------- | ------- |
 | `authgateway_install_path` | Location to install AuthGateway to | `/opt/authgateway` |
 | `authgateway_install_url` | URL of the GitHub release (tag) to install | See `defaults/main.yml` |
-| `authgateway_user` | User to run AuthGateway | `'authgateway'` |
-| `authgateway_group` | Group to run AuthGateway | `'authgateway'` |
+| `authgateway_user` | User to own AuthGateway install | `'authgateway'` |
+| `authgateway_group` | Group to own AuthGateway install | `'authgateway'` |
+| `systemd_user` | User to run AuthGateway | `authgateway_user` |
+| `systemd_group` | Group to run AuthGateway | `authgateway_group` |
 
 ### Configuration options
 | Variable | Description | Default |
@@ -91,6 +93,7 @@ The following options are all **REQUIRED**:
 ### Extra features
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
+| `authgateway_acmetool_certs` | Path to AcmeTool certificates | `'/var/lib/acme/live'` |
 | `authgateway_acmetool_hook` | When set, it is the path to an acmetool reload hook for AuthGateway | `None` |
 | `authgateway_acmetool_target` | When set, it is the path to an acmetool target for the domain and all subdomains | `None` |
 | `authgateway_install_nginx_workdir` | Create an nginx work directory under `authgateway_conf_base_dir/http_proxy` | `ture` |
@@ -108,6 +111,22 @@ this role is invoked:
   * A compatible Auth proxy must be installed
     (the role can optionally install ouath2_proxy for you).
   * NodeJS runtime (tested with node 8.4+).
+
+
+Running without root
+--------------------
+It is possible to configure AuthGateway to run without ever being root.
+For this to work the following conditions must be met:
+
+  * The HTTP proxy is allowed to bind to privileged ports (see Linux capabilities).
+  * AcmeTool certificates are copied where accessible.
+  * SystemD service specifies the user.
+
+To address these:
+
+  * `stefano-pogliani.upstream-nginx` support setting capabilities as needed.
+  * The AcmeTool hook script provided can copy the certs to the install directory if needed.
+  * The `systemd_user` and `systemd_group` variables configure the systemd service.
 
 
 Example Playbook

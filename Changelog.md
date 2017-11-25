@@ -1,3 +1,7 @@
+0.2.0
+-----
+* AuthGateway runs as non-root by default.
+
 0.1.7
 -----
 * Fix service handler `when` condition.

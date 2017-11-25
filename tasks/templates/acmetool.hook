@@ -7,6 +7,21 @@ set -e
 EVENT_NAME="$1"
 [ "$EVENT_NAME" = "live-updated" ] || exit 42
 
+# If AuthGateway is configured to run as non-root we need to copy the certs.
+if [ "{{ systemd_user }}" != "root" ]; then
+  CERT="{{ authgateway_acmetool_certs }}/{{ authgateway_conf_domain }}/privkey"
+  TARGET="{{ authgateway_conf_base_dir }}/privkey"
+
+  # Test for changes.
+  diff "${CERT}" "${TARGET}" > /dev/null 2> /dev/null
+  changed=$?
+  if [ ${changed} -ne 0 ]; then
+    cp "${CERT}" "${TARGET}"
+    chown "{{ systemd_user }}:{{ systemd_group }}" "${TARGET}"
+    chmod 0400 "${TARGET}"
+  fi
+fi
+
 # Reload services.
 if which systemctl >/dev/null 2>/dev/null; then
   service="authgateway.service"
