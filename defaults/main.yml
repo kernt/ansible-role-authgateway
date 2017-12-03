@@ -1,7 +1,7 @@
 ---
 # Default Auth configuration uses oauth2_proxy.
 authgateway_configure_oauth2_proxy: false
-authgateway_oauth2_proxy_prefix: '/opt/oauth2_porxy'
+authgateway_oauth2_proxy_prefix: '/opt/oauth2_proxy'
 
 # Customise these to install other versions of oauth2_proxy.
 authgateway_oauth2_proxy_checksum: 'sha256:1c16698ed0c85aa47aeb80e608f723835d9d1a8b98bd9ae36a514826b3acce56'
@@ -10,7 +10,7 @@ authgateway_oauth2_proxy_version: 'oauth2_proxy-2.2.0.linux-amd64.go1.8.1'
 
 
 # Configure required commands.
-authgateway_auth_exec: '/opt/oauth2_porxy/bin/oauth2_proxy'
+authgateway_auth_exec: '/opt/oauth2_proxy/bin/oauth2_proxy'
 authgateway_http_exec: 'nginx'
 authgateway_node_exec: '/usr/bin/node'
 authgateway_npm_exec:  'npm'
@@ -18,7 +18,7 @@ authgateway_npm_exec:  'npm'
 
 # Configure AuthGateway installation.
 authgateway_install_path: '/opt/authgateway'
-authgateway_install_url: 'https://github.com/stefano-pogliani/auth-gateway/archive/v0.2.8.tar.gz'
+authgateway_install_url: 'https://github.com/stefano-pogliani/auth-gateway/archive/v0.3.0.tar.gz'
 
 authgateway_group: 'authgateway'
 authgateway_user:  'authgateway'

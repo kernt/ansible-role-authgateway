@@ -1,3 +1,8 @@
+0.3.0
+-----
+* Fix typo in OAuth2_proxy install path.
+* Update to latest AuthGateway version.
+
 0.2.1
 -----
 * Fix `diff` detection in AcmeTool hook.
