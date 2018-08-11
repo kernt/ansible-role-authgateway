@@ -11,3 +11,12 @@ satisfy:
     {% endif -%}
     {% endif -%}
     {% endfor -%}
+    {% for app in authgateway_conf_apps -%}
+    {% if app.get('audit') -%}
+    {% if app['audit'].get('server_name') -%}
+    - {{ app['audit']['server_name']|lower }}
+    {% else -%}
+    - {{ app['name']|lower }}.{{ authgateway_conf_domain }}
+    {% endif -%}
+    {% endif -%}
+    {% endfor -%}

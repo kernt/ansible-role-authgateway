@@ -1,3 +1,7 @@
+0.3.1
+-----
+* Added audited apps to acmetool template.
+
 0.3.0
 -----
 * Fix typo in OAuth2_proxy install path.
